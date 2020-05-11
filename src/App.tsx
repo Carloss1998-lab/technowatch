@@ -66,17 +66,16 @@ const App = () => (
 
         <IonContent>
           <IonReactRouter>
-            <IonSplitPane contentId="main">
-              <Menu></Menu>
-              <IonPage id="main">
-                <Switch>
-                  <Route path="/" component={MainTabs}></Route>
-                  <Route path="/tabs/about" component={About} ></Route>
-                  <Route path="/" component={Home}></Route>
-                  <Route path="/" component={Home}></Route>
-                </Switch>
-              </IonPage>
-            </IonSplitPane>
+            <Menu></Menu>
+            <IonPage id="main">
+              <Switch>
+                <Route path="/" component={MainTabs}></Route>
+                <Route path="/tabs/about" component={About} ></Route>
+                <Route path="/" component={Home}></Route>
+                <Route path="/" component={Home}></Route>
+              </Switch>
+            </IonPage>
+
           </IonReactRouter>
         </IonContent>
       </IonApp>
