@@ -67,7 +67,7 @@ const App = () => (
         <IonContent>
           <IonReactRouter>
             <IonSplitPane contentId="main">
-              <Menu></Menu>
+              <SideMenu></SideMenu>
               <IonPage id="main">
                 <Switch>
                   <Route path="/" component={MainTabs}></Route>
