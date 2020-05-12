@@ -1,10 +1,10 @@
 ion-menu{
-  --width: 234px;
-  --background : --ion-background-color
-}
+  --max-width: 200px;
+  --background : --ion-background-color;
+  }
 ion-menu ion-content {
-  --padding-top: 20px;
-  --padding-bottom: 20px;
+  --padding-top: 10px;
+  --padding-bottom: 5px;
   --width :70px;
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }

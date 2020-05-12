@@ -57,8 +57,8 @@ const App = () => (
       <IonApp>
         <IonHeader>
           <IonToolbar color="danger">
-            <IonButtons slot="start">
-              <IonMenuButton autoHide={false} onClick={() => Menu}></IonMenuButton>
+            <IonButtons slot="end">
+              <IonMenuButton autoHide={false}></IonMenuButton>
             </IonButtons>
             <IonTitle>yStats</IonTitle>
           </IonToolbar>

@@ -50,7 +50,7 @@ const Menu = ({ history }: Props) => {
   }
 
   return (
-    <IonMenu type="reveal" contentId="main" menuId="first">
+    <IonMenu type="reveal" contentId="main" menuId="first" side="end">
 
       <IonContent forceOverscroll={false}>
         {renderlistItems(routes.appPages)}
