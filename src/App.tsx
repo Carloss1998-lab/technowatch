@@ -51,6 +51,9 @@ import SideMenu from "./components/SideMenu"
 import Menu from "./components/Menu"
 import Bulle from "./pages/Bulle"
 import { menuController } from '@ionic/core';
+import Login from './components/Login';
+import Register from './components/Register';
+
 const App = () => (
   <Router>
     <div id="app">
@@ -69,10 +72,10 @@ const App = () => (
             <Menu></Menu>
             <IonPage id="main">
               <Switch>
-                <Route path="/" component={MainTabs}></Route>
-                <Route path="/tabs/about" component={About} ></Route>
-                <Route path="/" component={Home}></Route>
-                <Route path="/" component={Home}></Route>
+                <Route path="/tabs" component={MainTabs}></Route>
+                <Route path="/login" component={Login}></Route>
+                <Route path="/register" component={Register}></Route>
+
               </Switch>
             </IonPage>
 

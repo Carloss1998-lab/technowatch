@@ -12,7 +12,10 @@ const routes = {
     { title: 'Dashboard', path: '/tabs/tab1', icon: statsChartOutline },
     { title: 'Products', path: '/tabs/tab2', icon: cartOutline },
     { title: 'Offre', path: '/tabs/tab3', icon: optionsOutline },
-    { title: 'About', path: '/tabs/tab1', icon: informationCircleOutline }
+    { title: 'About', path: '/tabs/tab1', icon: informationCircleOutline },
+    { title: 'Login', path: '/login', icon: person },
+    { title: 'Support', path: '/support', icon: help },
+
   ]
 };
 

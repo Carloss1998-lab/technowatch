@@ -18,7 +18,9 @@
     "@types/react-dom": "^16.9.4",
     "@types/react-router": "^5.1.7",
     "@types/react-router-dom": "^5.1.3",
+    "capacitor-firebase-analytics": "^0.3.2",
     "cordova-plugin-geolocation": "^4.0.2",
+    "firebase": "^7.14.3",
     "fusioncharts": "^3.15.1-sr.1",
     "ionicons": "^5.0.0",
     "react": "^16.13.0",
@@ -50,7 +52,8 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.1.0"
+    "@capacitor/cli": "2.1.0",
+    "@types/firebase": "^3.2.1"
   },
   "description": "An Ionic project"
 }
