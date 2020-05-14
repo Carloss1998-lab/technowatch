@@ -3,6 +3,9 @@ import { IonCard, IonContent, IonInput, IonLoading, IonPage, IonHeader, IonButto
 import { Link } from 'react-router-dom';
 import { loginUser } from '../components/firebaseConfiguration'
 import { toast } from './Toast';
+import { withRouter } from "react-router";
+
+
 const Login = () => {
 
     const [busy, setBusy] = useState<boolean>(false)
@@ -14,7 +17,7 @@ const Login = () => {
         setBusy(true)
         const res = await loginUser(username, password);
         if (res) {
-            toast('Erreur enregistré')
+            toast('Succès')
         }
         setBusy(false)
     }
@@ -35,6 +38,7 @@ const Login = () => {
                 <IonButton onClick={connexion}>Login</IonButton>
                 <p>
                     Create an account ? <Link to="/register"> Register</Link>
+                   Forget password ? <Link to="/updateaccount"> Change</Link>
                 </p>
             </IonContent>
         </IonPage>

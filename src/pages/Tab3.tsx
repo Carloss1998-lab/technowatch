@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IonContent, IonButton, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab3.css';
-import Register from '../components/Register'
+import Register from '../components/Register2'
 import Login from '../components/Login'
 import { ListOptions, listOptions } from "../components/ListOptions";
 

@@ -1,7 +1,7 @@
-import * as firebase from 'firebase'
+import firebase from 'firebase'
 import { toast } from './Toast'
 
-const configuration = {
+export const configuration = {
     //---
 
     apiKey: "AIzaSyB1qVxaCQMOMSG6xuFEXIWKt5_v6i37LN4",
@@ -17,13 +17,13 @@ const configuration = {
 firebase.initializeApp(configuration)
 
 export async function loginUser(username: string, password: string) {
-    const email = '${username}@gmail.com'
-
+    const email = username
     try {
         const res = await firebase.auth().signInWithEmailAndPassword(email, password)
         console.log(res)
         return true
     } catch (error) {
+
         toast(error.message, 4000)
         return false
     }
@@ -46,3 +46,27 @@ export async function registerUser(username: string, password: string) {
 
     // autheb=nticate with firebase
 }
+export async function VerificationEmail() {
+    const res = firebase.auth().currentUser?.sendEmailVerification().then(function () {
+
+        toast("Un message de vérification vous a été envoyé", 6000)
+    }).catch(function (error) {
+        toast(error.message, 4000)
+    });
+}
+
+
+export async function updateUser(email: string) {
+    try {
+        const res = await firebase.auth().sendPasswordResetEmail(email)
+        console.log(res)
+        return true
+
+    } catch (error) {
+        toast(error.message, 4000)
+
+        return false
+    }
+
+    // autheb=nticate with firebase
+};

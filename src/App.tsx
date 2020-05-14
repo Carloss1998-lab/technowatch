@@ -54,6 +54,7 @@ import { menuController } from '@ionic/core';
 import Login from './components/Login';
 import Register from './components/Register';
 import Infos from './components/Infos';
+import Update from './components/UpdateAccount'
 
 const App = () => (
   <Router>
@@ -71,14 +72,13 @@ const App = () => (
         <IonContent>
           <IonReactRouter>
             <Menu></Menu>
-
-
             <IonPage id="main">
               <Switch>
                 <Route path="/tabs" component={MainTabs}></Route>
                 <Route path="/login" component={Login}></Route>
                 <Route path="/register" component={Register}></Route>
                 <Route path="/infos" component={Infos}></Route>
+                <Route path="/updateaccount" component={Update}></Route>
 
               </Switch>
             </IonPage>

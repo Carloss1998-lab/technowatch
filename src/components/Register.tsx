@@ -1,62 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import { IonCard, IonContent, IonLoading, IonInput, IonPage, IonHeader, IonButton, IonButtons } from '@ionic/react';
+import React, { Component } from "react"
+import { IonCard, IonContent, IonInput, IonLoading, IonPage, IonHeader, IonButton, IonButtons } from '@ionic/react';
+import firebase from "firebase"
 import { Link } from 'react-router-dom';
-import { toast } from './Toast';
-import { registerUser } from '../components/firebaseConfiguration';
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+import { configuration } from './firebaseConfiguration';
+
+
+// Configure FirebaseUI.
+const uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'popup',
+    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+    signInSuccessUrl: '/signedIn',
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ]
+};
 
 const Register = () => {
-    const [username, setusername] = useState<string>('')
-
-    const [password, setpassword] = useState('')
-    const [confirmpassword, setconfirmpassword] = useState('')
-    const [busy, setBusy] = useState<boolean>(false)
-
-
-    async function register() {
-        // Valiation
-        setBusy(true)
-
-        if (password !== confirmpassword) {
-            return toast("Les mots de passe ne sont pas identiques")
-        }
-        if (username.trim() === '' || password.trim() === '') {
-            return toast("Veullez entrer votre mot de passe et votre username ")
-        }
-        const res = await registerUser(username, password)
-        if (res) {
-            toast("Succès")
-        }
-        setBusy(false)
-
-    }
     return (
         <IonPage>
             <IonHeader>
-                <h1>Register</h1>
+                <h1>Se connecter</h1>
             </IonHeader>
-            <IonLoading message="Register  in progress..." duration={0} isOpen={busy} />
-
             <IonContent className="ion-padding">
-                <IonInput
-                    placeholder="Username?"
-                    onIonChange={(eve: any) => setusername(eve.target.value)} />
-                <IonInput
-                    type="password"
-                    placeholder="Password?"
-                    onIonChange={(eve: any) => setpassword(eve.target.value)} />
-                <IonInput
-                    type="password"
-                    placeholder="Confirm Password?"
-                    onIonChange={(eve: any) => setconfirmpassword(eve.target.value)} />
-
-                <IonButton onClick={register}>Register</IonButton>
+                <p>Please sign-in:</p>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
                 <p>
                     Already have an account ? <Link to="/login"> Login</Link>
                 </p>
             </IonContent>
         </IonPage>
-    );
+    )
+
 };
-
-
-export default Register;
+export default Register
