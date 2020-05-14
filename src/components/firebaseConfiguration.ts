@@ -1,4 +1,5 @@
 import * as firebase from 'firebase'
+import { toast } from './Toast'
 
 const configuration = {
     //---
@@ -23,7 +24,23 @@ export async function loginUser(username: string, password: string) {
         console.log(res)
         return true
     } catch (error) {
-        console.log(error)
+        toast(error.message, 4000)
+        return false
+    }
+
+    // authenticate with firebase
+}
+
+export async function registerUser(username: string, password: string) {
+    const email = username
+
+    try {
+        const res = await firebase.auth().createUserWithEmailAndPassword(email, password)
+        console.log(res)
+        return true
+    } catch (error) {
+        toast(error.message, 4000)
+
         return false
     }
 

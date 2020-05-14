@@ -5,9 +5,18 @@ import './Tab1.css';
 import Liste from "../components/Liste";
 import fakedata from "../data/fakedata.json";
 import Geoloc from "../components/Geoloc"
+import { ListOptions, listOptions } from "../components/ListOptions";
+import { useState } from 'react';
+
 //import { MenuExample } from "../components/menu"
 
 const Tab1: React.FC = () => {
+  const [listOption, setListOption] = useState<listOptions>({
+    options: ["Python", "R", "web"],
+    name: "Framework"
+  }
+  );
+
   return (
     <IonPage>
       <IonHeader>
@@ -21,8 +30,7 @@ const Tab1: React.FC = () => {
             <IonTitle size="large">Tab 1</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <Geoloc />
-        <Liste data={fakedata.Countries} filtre="" />
+        <ListOptions options={listOption.options} name={"Frameworks"} />
       </IonContent>
     </IonPage>
   );
