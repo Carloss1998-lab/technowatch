@@ -49,6 +49,10 @@ import Geoloc from "./components/Geoloc"
 import About from './components/About';
 import SideMenu from "./components/SideMenu"
 import Menu from "./components/Menu"
+//import { PopoverExample } from "./components/Menu"
+
+import { ellipsisHorizontal } from 'ionicons/icons';
+
 import Bulle from "./pages/Bulle"
 import { menuController } from '@ionic/core';
 import Login from './components/Login';
@@ -63,19 +67,24 @@ const App = () => (
         <IonHeader>
           <IonToolbar color="danger">
             <IonButtons slot="end">
-              <IonMenuButton autoHide={false}></IonMenuButton>
+              <IonMenuButton autoHide={false} >
+
+              </IonMenuButton>
+              <Menu></Menu>
+
             </IonButtons>
             <IonTitle>yStats</IonTitle>
           </IonToolbar>
         </IonHeader>
 
+
         <IonContent>
           <IonReactRouter>
-            <Menu></Menu>
             <IonPage id="main">
+
               <Switch>
-                <Route path="/tabs" component={MainTabs}></Route>
-                <Route path="/login" component={Login}></Route>
+                <Route path="" component={MainTabs}></Route>
+                <Route path="tab1/login" component={Login}></Route>
                 <Route path="/register" component={Register}></Route>
                 <Route path="/infos" component={Infos}></Route>
                 <Route path="/updateaccount" component={Update}></Route>

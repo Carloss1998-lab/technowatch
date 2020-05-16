@@ -1,59 +1,74 @@
-import React from 'react';
-import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonRouterOutlet } from '@ionic/react';
+import React, { useState } from 'react';
+import { RouteComponentProps, withRouter, useLocation } from 'react-router';
 
-export const MenuExample: React.FC = () => (
-    <>
-        <IonMenu side="start" menuId="first">
-            <IonHeader>
-                <IonToolbar color="primary">
-                    <IonTitle>Start Menu</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent>
-                <IonList>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                </IonList>
+import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonToggle } from '@ionic/react';
+import { help, informationCircleOutline, person, statsChartOutline, cartOutline, pulseOutline, optionsOutline } from 'ionicons/icons';
+import './Menu.css'
+import { IonPopover, IonButton } from '@ionic/react';
+
+const routes = {
+    appPages: [
+        { title: 'Accueil', path: '/tabs/tab1', icon: pulseOutline },
+        { title: 'Dashboard', path: '/tabs/tab1', icon: statsChartOutline },
+        { title: 'Products', path: '/tabs/tab2', icon: cartOutline },
+        { title: 'Offre', path: '/tabs/tab3', icon: optionsOutline },
+        { title: 'About', path: '/tabs/tab1', icon: informationCircleOutline },
+        { title: 'Login', path: '/login', icon: person },
+        { title: 'Support', path: '/support', icon: help },
+
+    ]
+};
+
+interface Pages {
+    title: string,
+    path: string,
+    icon: string,
+}
+type Props = RouteComponentProps<{}>;
+
+const Menue = ({ history }: Props) => {
+    const [activePage, setActivePage] = useState(routes.appPages[0].title);
+
+
+    function renderlistItems(list: Pages[]) {
+        return list
+            .filter(route => !!route.path)
+            .map(page => (
+                <IonMenuToggle key={page.title} autoHide={false}>
+                    <IonItem button
+                        color={page.title === activePage ? 'primary' : ''}
+                        onClick={() => navigateToPage(page)}>
+
+                        <IonIcon slot="start" icon={page.icon}></IonIcon>
+                        <IonLabel>
+                            {page.title}
+                        </IonLabel>
+                    </IonItem>
+                </IonMenuToggle>
+            ));
+    }
+    const navigateToPage = (page: Pages) => {
+        history.push(page.path);
+        setActivePage(page.title);
+    }
+
+    return (
+        <IonMenu type="reveal" contentId="main" menuId="first" side="end">
+
+            <IonContent forceOverscroll={false}>
+                {renderlistItems(routes.appPages)}
+
             </IonContent>
         </IonMenu>
 
-        <IonMenu side="start" menuId="custom" className="my-custom-menu">
-            <IonHeader>
-                <IonToolbar color="tertiary">
-                    <IonTitle>Custom Menu</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent>
-                <IonList>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                </IonList>
-            </IonContent>
-        </IonMenu>
 
-        <IonMenu side="end" type="push">
-            <IonHeader>
-                <IonToolbar color="danger">
-                    <IonTitle>End Menu</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent>
-                <IonList>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                    <IonItem>Menu Item</IonItem>
-                </IonList>
-            </IonContent>
-        </IonMenu>
-        <IonRouterOutlet></IonRouterOutlet>
-    </>
+    );
+};
+
+
+export default withRouter(
+    Menue
 );
+
+
 

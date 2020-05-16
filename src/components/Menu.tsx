@@ -2,14 +2,19 @@ import React, { useState } from 'react';
 import { RouteComponentProps, withRouter, useLocation } from 'react-router';
 
 import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonToggle } from '@ionic/react';
-import { hammer, moonOutline, help, informationCircleOutline, logIn, logOut, mapOutline, peopleOutline, person, personAdd, statsChartOutline, cartOutline, pulseOutline, optionsOutline } from 'ionicons/icons';
+import { help, informationCircleOutline, person, statsChartOutline, cartOutline, pulseOutline, optionsOutline } from 'ionicons/icons';
 import './Menu.css'
+import { IonPopover, IonButton } from '@ionic/react';
+
+import { ellipsisHorizontal } from 'ionicons/icons';
+
+import { Link } from 'react-router-dom';
 
 
 const routes = {
   appPages: [
-    { title: 'Accueil', path: '/tabs/tab1', icon: pulseOutline },
-    { title: 'Dashboard', path: '/tabs/tab1', icon: statsChartOutline },
+    { title: 'Accueil', path: 'tab1/tabs/tab1', icon: pulseOutline },
+    { title: 'Dashboard', path: 'tabs/tabs/tab1', icon: statsChartOutline },
     { title: 'Products', path: '/tabs/tab2', icon: cartOutline },
     { title: 'Offre', path: '/tabs/tab3', icon: optionsOutline },
     { title: 'About', path: '/tabs/tab1', icon: informationCircleOutline },
@@ -24,48 +29,67 @@ interface Pages {
   path: string,
   icon: string,
 }
-type Props = RouteComponentProps<{}>;
+interface Props extends RouteComponentProps { };
 
 const Menu = ({ history }: Props) => {
   const [activePage, setActivePage] = useState(routes.appPages[0].title);
+  const [showPopover, setShowPopover] = useState<{ open: boolean, event: Event | undefined }>({
+    open: false,
+    event: undefined
+  });
 
 
   function renderlistItems(list: Pages[]) {
     return list
       .filter(route => !!route.path)
       .map(page => (
-        <IonMenuToggle key={page.title} menu="first" autoHide={false}>
-          <IonItem button
-            color={page.title === activePage ? 'primary' : ''}
-            onClick={() => navigateToPage(page)}>
+        <IonItem button
+          color={page.title === activePage ? 'primary' : ''}
+          onClick={() => navigateToPage(page)}
+        //routerLink={page.path}
+        >
 
-            <IonIcon slot="start" name={page.icon}></IonIcon>
-            <IonLabel>
-              {page.title}
-            </IonLabel>
-          </IonItem>
-        </IonMenuToggle>
+          <IonIcon slot="start" icon={page.icon}></IonIcon>
+          <IonLabel>
+            {page.title}
+          </IonLabel>
+        </IonItem>
       ));
   }
+
   const navigateToPage = (page: Pages) => {
     history.push(page.path);
     setActivePage(page.title);
+    setShowPopover({ open: false, event: undefined })
+    console.log(page.path)
   }
-
   return (
-    <IonMenu type="reveal" contentId="main" menuId="first" side="end">
-
-      <IonContent forceOverscroll={false}>
+    <>
+      <IonPopover
+        isOpen={showPopover.open}
+        event={showPopover.event}
+        onDidDismiss={e => setShowPopover({ open: false, event: undefined })}
+      >
+        <p>This is popover content</p>
         {renderlistItems(routes.appPages)}
 
-      </IonContent>
-    </IonMenu>
+      </IonPopover>
 
+      <IonButton onClick={(e) => setShowPopover({ open: true, event: e.nativeEvent })}>
+        <IonIcon slot="start" icon={ellipsisHorizontal}></IonIcon>
+      </IonButton>
+    </>
 
   );
-};
+}
 
+
+//export default Menu
 
 export default withRouter(
   Menu
 );
+
+
+
+

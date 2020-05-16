@@ -23,6 +23,7 @@
     "cordova-plugin-geolocation": "^4.0.2",
     "firebase": "^7.14.3",
     "fusioncharts": "^3.15.1-sr.1",
+    "history": "^4.10.1",
     "install": "^0.13.0",
     "ionicons": "^5.0.0",
     "react": "^16.13.0",
