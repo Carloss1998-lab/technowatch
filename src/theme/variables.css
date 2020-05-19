@@ -225,4 +225,9 @@ http://ionicframework.com/docs/theming/ */
 
     --ion-tab-bar-background: #1f1f1f;
   }
+.Menudiv{
+    display: flex;
+    justify-content: space-between;
+}
+  
 }

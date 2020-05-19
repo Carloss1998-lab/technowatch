@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { RouteComponentProps, withRouter, useLocation } from 'react-router';
 
 import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonToggle } from '@ionic/react';
-import { help, informationCircleOutline, person, statsChartOutline, cartOutline, pulseOutline, optionsOutline } from 'ionicons/icons';
+import { hammer, moonOutline, help, informationCircleOutline, logIn, logOut, mapOutline, peopleOutline, person, personAdd, statsChartOutline, cartOutline, pulseOutline, optionsOutline } from 'ionicons/icons';
 import './Menu.css'
-import { IonPopover, IonButton } from '@ionic/react';
+
 
 const routes = {
     appPages: [
@@ -34,12 +34,12 @@ const Menue = ({ history }: Props) => {
         return list
             .filter(route => !!route.path)
             .map(page => (
-                <IonMenuToggle key={page.title} autoHide={false}>
+                <IonMenuToggle key={page.title} menu="first" autoHide={false}>
                     <IonItem button
                         color={page.title === activePage ? 'primary' : ''}
                         onClick={() => navigateToPage(page)}>
 
-                        <IonIcon slot="start" icon={page.icon}></IonIcon>
+                        <IonIcon slot="start" name={page.icon}></IonIcon>
                         <IonLabel>
                             {page.title}
                         </IonLabel>
@@ -47,13 +47,16 @@ const Menue = ({ history }: Props) => {
                 </IonMenuToggle>
             ));
     }
+
     const navigateToPage = (page: Pages) => {
         history.push(page.path);
         setActivePage(page.title);
     }
 
+
+
     return (
-        <IonMenu type="reveal" contentId="main" menuId="first" side="end">
+        <IonMenu type="reveal" contentId="main" menuId="first" side="start">
 
             <IonContent forceOverscroll={false}>
                 {renderlistItems(routes.appPages)}
@@ -69,6 +72,3 @@ const Menue = ({ history }: Props) => {
 export default withRouter(
     Menue
 );
-
-
-

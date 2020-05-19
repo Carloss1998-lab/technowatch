@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonApp, IonSplitPane, IonPage, IonHeader, IonContent, IonToolbar, IonTitle } from '@ionic/react';
 import { Redirect } from 'react-router-dom';
-import MainTabs from './pages/MainTabs';
+import MainTabs from './pages/aMainTabs';
 
 import {
   IonMenuButton, IonButton, IonButtons,
@@ -42,7 +42,6 @@ import './theme/variables.css';
 import './App.css';
 import '@ionic/core/css/core.css';
 import '@ionic/core/css/ionic.bundle.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Liste from "./components/Liste"
 import Geoloc from "./components/Geoloc"
@@ -53,50 +52,51 @@ import Menu from "./components/Menu"
 
 import { ellipsisHorizontal } from 'ionicons/icons';
 
-import Bulle from "./pages/Bulle"
 import { menuController } from '@ionic/core';
-import Login from './components/Login';
 import Register from './components/Register';
 import Infos from './components/Infos';
 import Update from './components/UpdateAccount'
+import "./styles/global.scss";
+
+import { Switch, Route, Router } from "./util/router.js";
+import { ProvideAuth } from "./util/auth.js";
+import aMainTabs from "./pages/aMainTabs";
+
+import Login from "./components/Login";
+import Menue from "./components/moenu"
+
 
 const App = () => (
-  <Router>
-    <div id="app">
-      <IonApp>
-        <IonHeader>
-          <IonToolbar color="danger">
-            <IonButtons slot="end">
-              <IonMenuButton autoHide={false} >
-
-              </IonMenuButton>
-              <Menu></Menu>
-
-            </IonButtons>
-            <IonTitle>yStats</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+  <ProvideAuth>
+    <Router>
+      <div id="app">
+        <IonApp>
 
 
-        <IonContent>
-          <IonReactRouter>
-            <IonPage id="main">
+          <IonContent>
 
-              <Switch>
-                <Route path="" component={MainTabs}></Route>
-                <Route path="tab1/login" component={Login}></Route>
-                <Route path="/register" component={Register}></Route>
-                <Route path="/infos" component={Infos}></Route>
-                <Route path="/updateaccount" component={Update}></Route>
+            <IonReactRouter>
+              <Menue></Menue>
+              <IonPage id="main">
 
-              </Switch>
-            </IonPage>
+                <Switch>
+                  <Route path="/tabs" component={MainTabs}></Route>
+                  <Route path="/login" component={Login}></Route>
+                  <Route path="/register" component={Register}></Route>
+                  <Route path="/infos" component={Infos}></Route>
+                  <Route path="/signedIn" component={MainTabs}></Route>
+                  <Route path="/updateaccount" component={Update}></Route>
+                </Switch>
+              </IonPage>
 
-          </IonReactRouter>
-        </IonContent>
-      </IonApp>
-    </div>
-  </Router>
+            </IonReactRouter>
+          </IonContent>
+        </IonApp>
+
+      </div>
+    </Router>
+  </ProvideAuth>
+
 );
 
 

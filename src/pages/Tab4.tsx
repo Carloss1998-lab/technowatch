@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonApp, IonMenuButton } from '@ionic/react';
 import { ListOptions, listOptions } from "../components/ListOptions";
 
+import Menu from ".././components/Menu"
 
 const Tab4: React.FC = () => {
 
@@ -15,17 +16,37 @@ const Tab4: React.FC = () => {
 
         <IonPage>
             <IonHeader>
+                <IonToolbar color="danger">
+                    <IonButtons slot="start">
+                        <IonMenuButton autoHide={false} ></IonMenuButton>
+
+                    </IonButtons>
+
+                    <IonButtons slot="primary">
+                        <Menu></Menu>
+
+                    </IonButtons>
+
+                    <IonTitle class="ion-text-center">yStats</IonTitle>
+                </IonToolbar>
+
+
+            </IonHeader>
+
+
+            <IonContent>
                 <IonToolbar>
                     <IonTitle>{listOption.name}</IonTitle>
                 </IonToolbar>
-            </IonHeader>
-            <IonContent>
+
                 <IonHeader collapse="condense">
                     <IonToolbar>
                         <IonTitle size="large">{listOption.name}</IonTitle>
                     </IonToolbar>
                 </IonHeader>
                 <ListOptions options={listOption.options} name={"Frameworks"} />
+
+
             </IonContent>
         </IonPage>
     );

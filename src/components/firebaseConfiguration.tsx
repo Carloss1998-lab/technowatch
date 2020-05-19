@@ -1,3 +1,4 @@
+import { useAuth } from "../util/auth.js";
 import firebase from 'firebase'
 import { toast } from './Toast'
 
@@ -14,13 +15,16 @@ export const configuration = {
     measurementId: "G-KFXBMT8B7Y"
 
 }
-firebase.initializeApp(configuration)
+//firebase.initializeApp(configuration)
 
-export async function loginUser(username: string, password: string) {
+
+export async function LoginUser(username: string, password: string, auth: any) {
+
     const email = username
     try {
-        const res = await firebase.auth().signInWithEmailAndPassword(email, password)
+        const res = await auth.signin(email, password);
         console.log(res)
+
         return true
     } catch (error) {
 
@@ -31,11 +35,13 @@ export async function loginUser(username: string, password: string) {
     // authenticate with firebase
 }
 
-export async function registerUser(username: string, password: string) {
+
+
+export async function RegisterUser(username: string, password: string, auth: any) {
     const email = username
 
     try {
-        const res = await firebase.auth().createUserWithEmailAndPassword(email, password)
+        const res = await auth.signup(email, password)
         console.log(res)
         return true
     } catch (error) {
@@ -46,7 +52,9 @@ export async function registerUser(username: string, password: string) {
 
     // autheb=nticate with firebase
 }
-export async function VerificationEmail() {
+
+export const VerificationEmail = () => {
+
     const res = firebase.auth().currentUser?.sendEmailVerification().then(function () {
 
         toast("Un message de vérification vous a été envoyé", 6000)
@@ -56,9 +64,10 @@ export async function VerificationEmail() {
 }
 
 
-export async function updateUser(email: string) {
+export async function UpdateUser(email: string, auth: any) {
     try {
-        const res = await firebase.auth().sendPasswordResetEmail(email)
+
+        const res = auth.sendPasswordResetEmail(email)
         console.log(res)
         return true
 

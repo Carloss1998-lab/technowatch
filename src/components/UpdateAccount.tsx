@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { IonCard, IonContent, IonLoading, IonInput, IonPage, IonHeader, IonButton, IonButtons } from '@ionic/react';
 import { Link } from 'react-router-dom';
 import { toast } from './Toast';
-import { updateUser } from '../components/firebaseConfiguration';
+import { UpdateUser } from '../components/firebaseConfiguration';
+import { useAuth } from "./../util/auth.js";
 
 const Update = () => {
     const [email, setemail] = useState<string>('')
 
     const [busy, setBusy] = useState<boolean>(false)
 
+    const auth = useAuth();
 
     async function update() {
         // Valiation
@@ -17,7 +19,7 @@ const Update = () => {
         }
         setBusy(true)
 
-        const res = await updateUser(email)
+        const res = UpdateUser(email, auth)
         if (res) {
             toast("Succès")
         }
