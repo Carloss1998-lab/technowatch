@@ -17,3 +17,4 @@ export const ListOptions: React.FC<listOptions> = ({ options, name }) => (
     </IonList>
 
 )
+

@@ -46,11 +46,6 @@ const Tab3: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <ListOptions options={listOption.options} name={"Frameworks"} />
-
-        <Login />
-
-        <IonButton routerLink="/login"> Register oooh </IonButton>
-
       </IonContent>
     </IonPage>
   );

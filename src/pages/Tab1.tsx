@@ -13,7 +13,7 @@ import Menue from ".././components/moenu"
 
 const Tab1: React.FC = () => {
   const [listOption, setListOption] = useState<listOptions>({
-    options: ["Python", "caleb", "web"],
+    options: ["Python", "R", "web"],
     name: "Framework"
   }
   );
@@ -22,7 +22,6 @@ const Tab1: React.FC = () => {
     <IonPage>
 
       <IonHeader>
-
         <IonToolbar color="danger">
           <IonButtons slot="start">
             <IonMenuButton autoHide={false} ></IonMenuButton>

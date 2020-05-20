@@ -25,17 +25,17 @@ const Infos: React.FC<InfosProps> = ({ match }) => {
         <>
             <IonPage>
                 <IonHeader>
-                    {match.params.techno}
                     <div>News on {match.params.techno}</div>
                 </IonHeader>
                 {data ?
                     <IonContent>
                         <DisplayInfos total_count={data ? data.total_count : undefined} items={data.items} />
                     </IonContent> :
-                    <div>Chargement en cours...</div>
+                    <div>Loading...</div>
                 }
             </IonPage>
         </>)
 }
+
 
 export default Infos;

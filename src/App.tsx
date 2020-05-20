@@ -61,12 +61,16 @@ import "./styles/global.scss";
 import { Switch, Route, Router } from "./util/router.js";
 import { ProvideAuth } from "./util/auth.js";
 import aMainTabs from "./pages/aMainTabs";
-
+import InfosDetails from "./components/InfosDetails"
 import Login from "./components/Login";
 import Menue from "./components/moenu"
+import { useLocation } from 'react-router';
 
+//import {uselocation} from
+//const location = useLocation();
 
 const App = () => (
+
   <ProvideAuth>
     <Router>
       <div id="app">
@@ -82,7 +86,8 @@ const App = () => (
                   <Route path="/tabs" component={MainTabs}></Route>
                   <Route path="/login" component={Login}></Route>
                   <Route path="/register" component={Register}></Route>
-                  <Route path="/infos/:techno" component={Infos}></Route>
+                  <Route exact path="/infos/:techno" component={Infos}></Route>
+                  <Route path="/infos/:techno/:login/:techno_item" component={InfosDetails}></Route>
                   <Route path="/signedIn" component={MainTabs}></Route>
                   <Route path="/updateaccount" component={Update}></Route>
                 </Switch>
