@@ -78,12 +78,11 @@ const App = () => (
             <IonReactRouter>
               <Menue></Menue>
               <IonPage id="main">
-
                 <Switch>
                   <Route path="/tabs" component={MainTabs}></Route>
                   <Route path="/login" component={Login}></Route>
                   <Route path="/register" component={Register}></Route>
-                  <Route path="/infos" component={Infos}></Route>
+                  <Route path="/infos/:techno" component={Infos}></Route>
                   <Route path="/signedIn" component={MainTabs}></Route>
                   <Route path="/updateaccount" component={Update}></Route>
                 </Switch>

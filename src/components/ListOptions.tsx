@@ -12,7 +12,7 @@ export const ListOptions: React.FC<listOptions> = ({ options, name }) => (
     <IonList>
         {options.map((option) => (
             <IonItem>
-                <IonButton color="secondary" routerLink="/infos">{option}</IonButton>
+                <IonButton color="secondary" routerLink={"/infos/" + option} >{option}</IonButton>
             </IonItem>))}
     </IonList>
 

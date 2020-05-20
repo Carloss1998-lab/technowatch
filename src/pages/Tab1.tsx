@@ -13,7 +13,7 @@ import Menue from ".././components/moenu"
 
 const Tab1: React.FC = () => {
   const [listOption, setListOption] = useState<listOptions>({
-    options: ["Python", "R", "web"],
+    options: ["Python", "caleb", "web"],
     name: "Framework"
   }
   );
