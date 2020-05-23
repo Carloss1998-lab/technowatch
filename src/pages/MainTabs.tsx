@@ -19,12 +19,12 @@ const MainTabs: React.FC<MainTabsProps> = () => {
 
         <IonTabs>
             <IonRouterOutlet>
-                <Redirect exact path="/tabs" to="/tabs/tab1" />
-                <Route path="/tabs/tab1" component={Tab1} exact={true} />
+                <Redirect to="/tabs/tab1" />
+                <Route path="/tabs/tab1" component={Tab1} />
                 <Route path="/tabs/tab2" component={Tab2} exact={true} />
                 <Route path="/tabs/tab3" component={Tab3} exact={true} />
                 <Route path="/tabs/tab4" component={Tab4} />
-                <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
+                <Route path="/" render={() => <Redirect to="/tabs/tab1" />} exact={true} />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
                 <IonTabButton tab="tab1" href="/tabs/tab1">

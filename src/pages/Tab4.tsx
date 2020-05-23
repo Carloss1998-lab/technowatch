@@ -15,24 +15,6 @@ const Tab4: React.FC = () => {
     return (
 
         <IonPage>
-            <IonHeader>
-                <IonToolbar color="danger">
-                    <IonButtons slot="start">
-                        <IonMenuButton autoHide={false} ></IonMenuButton>
-
-                    </IonButtons>
-
-                    <IonButtons slot="primary">
-                        <Menu></Menu>
-
-                    </IonButtons>
-
-                    <IonTitle class="ion-text-center">yStats</IonTitle>
-                </IonToolbar>
-
-
-            </IonHeader>
-
 
             <IonContent>
                 <IonToolbar>
