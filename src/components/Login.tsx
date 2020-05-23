@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IonCard, IonContent, IonInput, IonLoading, IonPage, IonHeader, IonButton, IonButtons } from '@ionic/react';
+import { IonCard, IonContent, IonInput, IonLoading, IonPage, IonHeader, IonButton, IonButtons, IonRippleEffect } from '@ionic/react';
 import { Link } from 'react-router-dom';
 import { LoginUser } from '../components/firebaseConfiguration'
 import { toast } from './Toast';
@@ -55,6 +55,7 @@ const Login = () => {
             </IonHeader>
             <IonLoading message="Please wait..." duration={0} isOpen={busy} />
             <IonContent className="ion-padding">
+
                 <IonInput
                     placeholder="Username?"
                     onIonChange={(eve: any) => setusername(eve.target.value)} />
@@ -62,13 +63,15 @@ const Login = () => {
                     type="password"
                     placeholder="Password?"
                     onIonChange={(eve: any) => setpassword(eve.target.value)} />
-                <IonButton onClick={connexion}>Login</IonButton>
+                <IonButton onClick={connexion}>Login
+                <IonRippleEffect></IonRippleEffect>
+                </IonButton>
                 <p>Please sign-in:</p>
                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
 
                 <p>
-                    Create an account ? <Link to="/register"> Register</Link>
-                   Forget password ? <Link to="/updateaccount"> Change</Link>
+                    Create an account ? <Link to="/register"> Register    </Link>
+                   Forget password ? <Link to="/updateaccount"> Change  </Link>
                 </p>
             </IonContent>
         </IonPage>

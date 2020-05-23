@@ -17,13 +17,8 @@ import { useAuth } from "./../util/auth.js";
 
 const routes = {
   appPages: [
-    { title: 'Accueil', path: '/tabs/tab1', icon: pulseOutline },
-    { title: 'Dashboard', path: '/tabs/tab2', icon: statsChartOutline },
-    { title: 'Products', path: '/tabs/tab2', icon: cartOutline },
-    { title: 'Offre', path: '/tabs/tab3', icon: optionsOutline },
-    { title: 'About', path: '/tabs/tab1', icon: informationCircleOutline },
     { title: 'Logout', path: '/logout', icon: logOut },
-    { title: 'Support', path: '/support', icon: help },
+    { title: 'Support', path: '/login', icon: help },
 
   ],
   signin: [
@@ -59,7 +54,7 @@ const Menu = () => {
           <IonItem button
             color={page.title === activePage ? 'primary' : ''}
             onClick={() => navigateToPage(page)}
-          //routerLink={page.path}
+            routerLink={page.path}
           >
             <IonIcon slot="start" icon={page.icon}></IonIcon>
             <IonLabel>
@@ -80,7 +75,7 @@ const Menu = () => {
       console.log(page.path)
 
     } else {
-      router.push(page.path)
+      //router.push(page.path)
       setActivePage(page.title);
       setShowPopover({ open: false, event: undefined })
       console.log(page.path)

@@ -1,7 +1,8 @@
 import React from 'react';
 import { IonApp, IonSplitPane, IonPage, IonHeader, IonContent, IonToolbar, IonTitle } from '@ionic/react';
 import { Redirect } from 'react-router-dom';
-import MainTabs from './pages/aMainTabs';
+import Render from './components/Render';
+import MainTabs from './pages/MainTabs';
 
 import {
   IonMenuButton, IonButton, IonButtons,
@@ -65,43 +66,64 @@ import InfosDetails from "./components/InfosDetails"
 import Login from "./components/Login";
 import Menue from "./components/moenu"
 import { useLocation } from 'react-router';
+import { useAuth } from "./util/auth.js";
 
 //import {uselocation} from
 //const location = useLocation();
+//const auth = useAuth();
 
-const App = () => (
+const App = () => {
+  // const location = useLocation()
+  const auth = useAuth();
 
-  <ProvideAuth>
-    <Router>
-      <div id="app">
-        <IonApp>
+  return (
+    <ProvideAuth>
+      <Router>
+        <div id="app">
+          <IonApp>
+            <IonHeader>
+              <IonToolbar color="danger">
+                <IonButtons slot="start">
+                  <IonMenuButton autoHide={false} ></IonMenuButton>
 
+                </IonButtons>
 
-          <IonContent>
+                <IonButtons slot="primary">
+                  <Menu></Menu>
 
-            <IonReactRouter>
-              <Menue></Menue>
-              <IonPage id="main">
-                <Switch>
-                  <Route path="/tabs" component={MainTabs}></Route>
-                  <Route path="/login" component={Login}></Route>
-                  <Route path="/register" component={Register}></Route>
-                  <Route exact path="/infos/:techno" component={Infos}></Route>
-                  <Route path="/infos/:techno/:login/:techno_item" component={InfosDetails}></Route>
-                  <Route path="/signedIn" component={MainTabs}></Route>
-                  <Route path="/updateaccount" component={Update}></Route>
-                </Switch>
-              </IonPage>
+                </IonButtons>
 
-            </IonReactRouter>
-          </IonContent>
-        </IonApp>
+                <IonTitle class="ion-text-center">yStats</IonTitle>
+              </IonToolbar>
 
-      </div>
-    </Router>
-  </ProvideAuth>
+            </IonHeader>
 
-);
+            <IonContent>
+              <IonReactRouter>
+                <Menue></Menue>
+                <IonPage id="main">
+                  <Switch>
+                    <Route path="/tabs" component={Render}></Route>
+                    <Route path="/login" component={Login}></Route>
+                    <Route path="/register" component={Register}></Route>
+                    <Route exact path="/infos/:techno" component={Infos}></Route>
+                    <Route path="/infos/:techno/:login/:techno_item" component={InfosDetails}></Route>
+                    <Route path="/signedIn" component={MainTabs}></Route>
+                    <Route path="/updateaccount" component={Update}></Route>
+                    <Redirect from="/" to="/tabs" />
+
+                  </Switch>
+                </IonPage>
+
+              </IonReactRouter>
+            </IonContent>
+          </IonApp>
+
+        </div>
+      </Router>
+    </ProvideAuth>
+  )
+};
 
 
 export default App;
