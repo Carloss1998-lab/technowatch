@@ -4,6 +4,9 @@ import { IonContent, IonRouterOutlet, IonAvatar, IonLabel, IonList, IonItem, Ion
 import InfosDetails from "./InfosDetails"
 import { useLocation } from 'react-router';
 import { IonReactRouter } from '@ionic/react-router';
+import ReactMarkdown from "react-markdown";
+import App from '../App';
+
 
 
 
@@ -24,11 +27,22 @@ interface Project {
 
 
 
+function readmeMarkdown(readme: any) {
+    const markdown = readme;
+
+    return (
+        <div className="App">
+            <ReactMarkdown source={markdown} />
+        </div>
+    );
+}
+
 const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, readme, clone_url, language, created_at, updated_at }) => {
 
 
     return (
         <>
+
 
             {
                 <IonPage>
@@ -56,11 +70,14 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
                         <div><b>Description</b>: {description}</div>
                         <div>
                             <b>Readme</b> : {readme}
+                            <div className="App">
+                            </div>
                         </div>
                     </IonContent>
                 </IonPage>
 
             }
+            <App></App>
         </>
 
 
@@ -68,4 +85,3 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
 }
 
 export default DisplayInfosDetails;
-
