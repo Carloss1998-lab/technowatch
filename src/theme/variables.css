@@ -229,5 +229,7 @@ http://ionicframework.com/docs/theming/ */
     display: flex;
     justify-content: space-between;
 }
-  
+.avatars img {
+  margin: auto;
+}  
 }

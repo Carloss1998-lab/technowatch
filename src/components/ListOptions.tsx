@@ -1,20 +1,32 @@
-import React from 'react';
-import { IonList, IonItem, IonLabel, IonInput, IonToggle, IonButton } from '@ionic/react';
-import Infos from './Infos';
+import React, { useState } from 'react';
+import { IonList, IonItem, IonButton, IonSearchbar, IonToolbar, IonInput } from '@ionic/react';
+import InfosResarch from "./InfosResearch";
 
 export interface listOptions {
     options: string[];
     name: string;
 }
 
-export const ListOptions: React.FC<listOptions> = ({ options, name }) => (
+export const ListOptions: React.FC<listOptions> = ({ options, name }) => {
+    const [search, setSearch] = useState('');
 
-    <IonList>
-        {options.map((option) => (
+    return (
+
+        <IonList>
             <IonItem>
-                <IonButton color="secondary" routerLink={"/infos/" + option} >{option}</IonButton>
-            </IonItem>))}
-    </IonList>
+                <IonInput value={search} placeholder="Enter Input" onIonChange={e => setSearch(e.detail.value!)} clearInput></IonInput>
+            </IonItem>
+            <IonItem>
+                {//<IonButton color="danger" onClick={() => <InfosResarch search={search} />}>OK</IonButton>}
+                }
+            </IonItem>
 
-)
+            {options.map((option) => (
+                <IonItem>
+                    <IonButton color="secondary" routerLink={"/infos/" + option} >{option}</IonButton>
+                </IonItem>))}
+        </IonList>
+
+    )
+}
 

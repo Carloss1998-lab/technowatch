@@ -26,7 +26,7 @@ const Tab4: React.FC = () => {
                         <IonTitle size="large">{listOption.name}</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-                <ListOptions options={listOption.options} name={"Frameworks"} />
+                <ListOptions options={listOption.options} name={listOption.name} />
 
 
             </IonContent>

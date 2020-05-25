@@ -28,7 +28,7 @@ const Tab2: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <ReactFC {...chartConfigs} />
-        <ListOptions options={listOption.options} name={"Frameworks"} />
+        <ListOptions options={listOption.options} name={listOption.name} />
       </IonContent>
     </IonPage>
   );

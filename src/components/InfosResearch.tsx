@@ -4,16 +4,16 @@ import { IonContent, IonPage, IonHeader, IonList, IonItem, IonLoading } from '@i
 import DisplayInfos from "./DisplayInfos";
 
 interface InfosProps extends RouteComponentProps<{
-    techno: string;
+    search: string;
 }> { }
 
 
-const Infos: React.FC<InfosProps> = ({ match }) => {
+const InfosResearch: React.FC<InfosProps> = ({ match }) => {
     const [data, setData] = useState<any>();
     const [busy, setBusy] = useState<boolean>(true)
 
     useEffect(() => {
-        fetch("https://api.github.com/search/repositories?q=" + match.params.techno + "&sort=updated&order=desc")
+        fetch("https://api.github.com/search/repositories?q=" + match.params.search + "&sort=updated&order=desc")
             .then((resp) => resp.json())
             .then((resp_json) =>
                 setData(resp_json)
@@ -25,7 +25,7 @@ const Infos: React.FC<InfosProps> = ({ match }) => {
         <>
             <IonPage>
                 <IonHeader>
-                    <div>News on {match.params.techno}</div>
+                    <div>News on {match.params.search}</div>
                 </IonHeader>
                 {data ?
                     <IonContent>
@@ -39,4 +39,4 @@ const Infos: React.FC<InfosProps> = ({ match }) => {
 }
 
 
-export default Infos;
+export default InfosResearch;

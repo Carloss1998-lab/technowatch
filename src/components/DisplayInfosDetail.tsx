@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps, Route } from 'react-router';
-import { IonContent, IonRouterOutlet, IonAvatar, IonLabel, IonList, IonItem, IonHeader, IonPage } from '@ionic/react';
+import { IonContent, IonRouterOutlet, IonAvatar, IonLabel, IonList, IonItem, IonHeader, IonPage, IonCard, IonCardContent, IonCardTitle } from '@ionic/react';
 import InfosDetails from "./InfosDetails"
 import { useLocation } from 'react-router';
 import { IonReactRouter } from '@ionic/react-router';
@@ -10,6 +10,10 @@ import { IonReactRouter } from '@ionic/react-router';
 interface Project {
     name: string,
     description: string,
+    clone_url: string,
+    language: string,
+    created_at: string,
+    updated_at: string,
     owner: {
         avatar_url: string,
         login: string,
@@ -20,38 +24,42 @@ interface Project {
 
 
 
-const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, readme }) => {
+const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, readme, clone_url, language, created_at, updated_at }) => {
 
 
     return (
         <>
 
-            {name ? (
+            {
                 <IonPage>
                     <IonHeader>
-                        <div>News on {name}</div>
-                    </IonHeader>                    <IonContent>
-                        <div>
-                            <p> Description : {description}</p>
+                        <h2>{name}</h2>
+                    </IonHeader>
+                    <IonContent>
+                        <IonCard>
+                            <IonAvatar><img src={owner.avatar_url}></img></IonAvatar>
 
-                            <p>Owner's informations :
-                                <h3>Github Pseudo: {owner.login}</h3>
-                                <h3>type : {owner.type}</h3>
-                            </p>
+                            <IonCardContent>
+                                <IonCardTitle>
+                                    Owner's informations
+                                </IonCardTitle>
 
-                        </div>
+                                <p><b>Github Pseudo</b>: {owner.login} </p>
+                                <p><b>Clone Url</b>: <a href={clone_url}> {clone_url} </a> </p>
+                                <p><b>Language</b>: {language} </p>
+                                <p><b>Creation</b>: {new Date(created_at).toUTCString()} </p>
+                                <p><b>Last update</b>: {new Date(updated_at).toUTCString()} </p>
+                                <p><b>Type</b>: {owner.type} </p>
+                            </IonCardContent>
+                        </IonCard>
+
+                        <div><b>Description</b>: {description}</div>
                         <div>
-                            Readme: {readme}
+                            <b>Readme</b> : {readme}
                         </div>
                     </IonContent>
                 </IonPage>
 
-
-
-
-            ) : (
-                    <div>Loading...</div>
-                )
             }
         </>
 

@@ -13,7 +13,7 @@ import Menue from ".././components/moenu"
 
 const Tab1: React.FC = () => {
   const [listOption, setListOption] = useState<listOptions>({
-    options: ["Python", "Burkina faso", "web"],
+    options: ["Python", "R", "web"],
     name: "Framework"
   }
   );
@@ -27,7 +27,7 @@ const Tab1: React.FC = () => {
             <IonTitle size="large">Tab 1</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ListOptions options={listOption.options} name={"Frameworks"} />
+        <ListOptions options={listOption.options} name={listOption.name} />
       </IonContent>
     </IonPage>
   );
