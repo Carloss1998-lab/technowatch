@@ -27,15 +27,6 @@ interface Project {
 
 
 
-function readmeMarkdown(readme: any) {
-    const markdown = readme;
-
-    return (
-        <div className="App">
-            <ReactMarkdown source={markdown} />
-        </div>
-    );
-}
 
 const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, readme, clone_url, language, created_at, updated_at }) => {
 
@@ -54,9 +45,6 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
                             <IonAvatar><img src={owner.avatar_url}></img></IonAvatar>
 
                             <IonCardContent>
-                                <IonCardTitle>
-                                    Owner's informations
-                                </IonCardTitle>
 
                                 <p><b>Github Pseudo</b>: {owner.login} </p>
                                 <p><b>Clone Url</b>: <a href={clone_url}> {clone_url} </a> </p>
@@ -68,16 +56,24 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
                         </IonCard>
 
                         <div><b>Description</b>: {description}</div>
-                        <div>
-                            <b>Readme</b> : {readme}
-                            <div className="App">
-                            </div>
-                        </div>
+
+                        <IonCard>
+
+                            <IonCardContent>
+                                <IonCardTitle>
+                                    <b>Readme</b>
+                                </IonCardTitle>
+                                <div className="Caleb">
+                                    <ReactMarkdown source={readme} />
+                                </div>
+                            </IonCardContent>
+                        </IonCard>
+
                     </IonContent>
                 </IonPage>
 
             }
-            <App></App>
+
         </>
 
 
