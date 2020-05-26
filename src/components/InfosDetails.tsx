@@ -22,10 +22,6 @@ const InfosDetails: React.FC<DetailsInfosProps> = ({ match }) => {
     const [busy, setBusy] = useState<boolean>(true)
 
 
-    var myHeaders = new Headers({
-        'Accept': 'application/vnd.github.v3.raw'
-    });
-
 
 
     useEffect(() => {
@@ -41,7 +37,8 @@ const InfosDetails: React.FC<DetailsInfosProps> = ({ match }) => {
         fetch("https://api.github.com/repos/" + match.params.login + "/" + match.params.techno_item + "/readme")
             .then((resp) => resp.json())
             .then((resp_json) =>
-                setReadMe(atob(resp_json.content))
+                setReadMe(decodeURIComponent(escape(window.atob(resp_json.content))))
+
             )
     }, [])
 
