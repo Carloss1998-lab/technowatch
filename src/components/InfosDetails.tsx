@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { IonContent, IonPage, IonHeader, IonList, IonItem, IonLoading } from '@ionic/react';
-import DisplayInfos from "./DisplayInfos";
 import DisplayInfosDetails from './DisplayInfosDetail';
-import fs from "fs";
 
 
 interface DetailsInfosProps extends RouteComponentProps<{
@@ -43,7 +41,7 @@ const InfosDetails: React.FC<DetailsInfosProps> = ({ match }) => {
         fetch("https://api.github.com/repos/" + match.params.login + "/" + match.params.techno_item + "/readme")
             .then((resp) => resp.json())
             .then((resp_json) =>
-                setReadMe(resp_json.content.decode)
+                setReadMe(atob(resp_json.content))
             )
     }, [])
 

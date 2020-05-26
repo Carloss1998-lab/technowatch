@@ -3,6 +3,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonAp
 import { ListOptions, listOptions } from "../components/ListOptions";
 
 import Menu from ".././components/Menu"
+import ExploreContainer from '../components/ExploreContainer';
 
 const Tab4: React.FC = () => {
 
@@ -17,17 +18,7 @@ const Tab4: React.FC = () => {
         <IonPage>
 
             <IonContent>
-                <IonToolbar>
-                    <IonTitle>{listOption.name}</IonTitle>
-                </IonToolbar>
-
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle size="large">{listOption.name}</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
-                <ListOptions options={listOption.options} name={listOption.name} />
-
+                <ExploreContainer />
 
             </IonContent>
         </IonPage>

@@ -1,17 +1,26 @@
-import React from 'react';
-import './ExploreContainer.css';
+import React, { useState, useEffect } from "react";
+import "./ExploreContainer.css";
+import Preferences from "./ListePreference";
+import AjoutPreference from ".././stockage/AjoutPreference";
+import { getPreferences, addPreferences } from ".././stockage/base";
+import { Preference } from ".././stockage/Preference";
 
-interface ContainerProps {
-  name: string;
-}
 
-const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
+const ExploreContainer: React.FC = () => {
+  const [preferences, setPreferences] = useState<Preference[]>([]);
+
+  useEffect(() => {
+    getPreferences().then((res) => setPreferences(res));
+  }, []);
+
   return (
-    <div className="container">
-      <strong>{name}</strong>
-      <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    </div>
+    <>
+      <Preferences preferences={preferences}></Preferences>
+    </>
   );
 };
 
 export default ExploreContainer;
+
+
+
