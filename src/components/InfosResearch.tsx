@@ -13,6 +13,7 @@ const InfosResearch: React.FC<InfosProps> = ({ match }) => {
     const [busy, setBusy] = useState<boolean>(true)
 
     useEffect(() => {
+
         fetch("https://api.github.com/search/repositories?q=" + match.params.search + "&sort=updated&order=desc")
             .then((resp) => resp.json())
             .then((resp_json) =>

@@ -67,6 +67,7 @@ import Login from "./components/Login";
 import Menue from "./components/moenu"
 import { useLocation } from 'react-router';
 import { useAuth } from "./util/auth.js";
+import InfosResearch from './components/InfosResearch';
 
 //import {uselocation} from
 //const location = useLocation();
@@ -107,6 +108,7 @@ const App = () => {
                     <Route path="/login" component={Login}></Route>
                     <Route path="/register" component={Register}></Route>
                     <Route exact path="/infos/:techno" component={Infos}></Route>
+                    <Route exact path="/infos/:search" component={InfosResearch}></Route>
                     <Route path="/infos/:techno/:login/:techno_item" component={InfosDetails}></Route>
                     <Route path="/signedIn" component={MainTabs}></Route>
                     <Route path="/updateaccount" component={Update}></Route>

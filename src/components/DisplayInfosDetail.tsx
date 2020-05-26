@@ -4,9 +4,13 @@ import { IonContent, IonRouterOutlet, IonAvatar, IonLabel, IonList, IonItem, Ion
 import InfosDetails from "./InfosDetails"
 import { useLocation } from 'react-router';
 import { IonReactRouter } from '@ionic/react-router';
-import ReactMarkdown from "react-markdown";
+//import ReactMarkdown from "react-markdown";
 import App from '../App';
 
+
+
+
+const ReactMarkdown = require('react-markdown/with-html')
 
 
 
@@ -64,7 +68,7 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
                                     <b>Readme</b>
                                 </IonCardTitle>
                                 <div className="Caleb">
-                                    <ReactMarkdown source={readme} />
+                                    <ReactMarkdown source={readme} escapeHtml={false} />
                                 </div>
                             </IonCardContent>
                         </IonCard>

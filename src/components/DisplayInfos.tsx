@@ -15,10 +15,6 @@ interface DataFormat {
 interface Project {
     name: string,
     description: string,
-    clone_url: string,
-    language: string,
-    created_at: string,
-    updated_at: string,
     owner: {
         avatar_url: string,
         login: string
@@ -42,7 +38,6 @@ const DisplayInfos: React.FC<DataFormat> = ({ items }) => {
 
 
                     <IonItem button
-                        // onClick={() => (<InfosDetails />)}
                         routerLink={location.pathname + "/" + item.owner.login + "/" + item.name}
                     >
 

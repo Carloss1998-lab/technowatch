@@ -43,7 +43,7 @@ const InfosDetails: React.FC<DetailsInfosProps> = ({ match }) => {
         fetch("https://api.github.com/repos/" + match.params.login + "/" + match.params.techno_item + "/readme")
             .then((resp) => resp.json())
             .then((resp_json) =>
-                setReadMe(atob(resp_json.content))
+                setReadMe(resp_json.content.decode)
             )
     }, [])
 
