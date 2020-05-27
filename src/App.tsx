@@ -5,6 +5,7 @@ import Render from './components/Render';
 import MainTabs from './pages/MainTabs';
 import InfosOrganizations from './components/InfosOrganizations'
 import InfosResearchOrganizations from './components/InfosResearchOrganizations';
+import Stats from './components/Stats';
 
 import {
   IonMenuButton, IonButtons,
@@ -56,6 +57,7 @@ import InfosResearchTopics from './components/InfosResearchTopics'
 import ExploreContainer2 from './components/ExploreContainer2';
 import Sidemenu from "./components/SideMenu"
 
+
 const App = () => {
   const auth = useAuth();
 
@@ -86,6 +88,7 @@ const App = () => {
                 <Menue></Menue>
                 <IonPage id="main">
                   <Switch>
+                    <Route exact path="/tabs/tab4/:pseudo/:repository" component={Stats}></Route>
                     <Route path="/tabs" component={Render}></Route>
                     <Route path="/login" component={Login}></Route>
                     <Route path="/register" component={Register}></Route>

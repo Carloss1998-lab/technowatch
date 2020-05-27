@@ -72,14 +72,14 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
                             <IonCol>
                                 <IonButton color="danger" onClick={() => {
                                     addPreferences(pref)
-                                    toast('Préférence ajouté à votre liste')
+                                    toast('The preference has been added with succes')
                                 }} >
-                                    J'aime <IonIcon icon={heart}></IonIcon>
+                                    Follow <IonIcon icon={heart}></IonIcon>
                                 </IonButton>
                             </IonCol>
                             <IonCol>
-                                <IonButton color="danger" onClick={() => toast("Pas encore disponible")} >
-                                    Suivre <IonIcon icon={arrowRedo}></IonIcon>
+                                <IonButton color="danger" onClick={() => toast("Not yet available")} >
+                                    Share <IonIcon icon={arrowRedo}></IonIcon>
 
                                 </IonButton>
                             </IonCol>

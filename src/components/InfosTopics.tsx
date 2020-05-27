@@ -13,7 +13,7 @@ const InfosOrganizations: React.FC<InfosProps> = ({ match }) => {
     const [busy, setBusy] = useState<boolean>(true)
 
     useEffect(() => {
-        fetch("https://api.github.com/search/repositories?q=topic:" + match.params.topic + "&sort=updated&order=desc", {
+        fetch("https://api.github.com/search/repositories?q=topic:" + match.params.topic + "&sort=updated&order=desc&per_page=100", {
             method: "GET",
             headers: {
                 'Accept': 'application/vnd.github.mercy-preview+json',
