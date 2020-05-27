@@ -12,9 +12,9 @@ const Preferences = ({ preferences }: Props) => (
             <IonItem key={preference.Login}>
 
                 <IonLabel>
-                    <h2>Login : {preference.Login}</h2>
+                    <h2>Pseudo Github : {preference.Login}</h2>
 
-                    <h2>Repositorie : {preference.repositorie}</h2>
+                    <h2>Repository : {preference.repositorie}</h2>
 
                     <h3>{preference.description}</h3>
                 </IonLabel>

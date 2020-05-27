@@ -1,17 +1,7 @@
 [
     {
-        "Login": "Tache 1",
-        "repositorie": "Commencer le TP",
-        "description": "Ici la description"
-    },
-    {
-        "Login": "Tache 2",
+        "Login": "Carloss1998-lab & Pegdwende649",
         "repositorie": "Continuer le TP",
-        "description": "Ici la description"
-    },
-    {
-        "Login": "Fin",
-        "repositorie": "Finir le TP",
-        "description": "Ici la description"
+        "description": "Le repository pour cette super appli \uD83D\uDE01"
     }
 ]

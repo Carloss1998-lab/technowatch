@@ -14,7 +14,7 @@ const Infos: React.FC<InfosProps> = ({ match }) => {
     const [busy, setBusy] = useState<boolean>(true)
 
     useEffect(() => {
-        fetch("https://api.github.com/search/repositories?q=" + match.params.techno + "&sort=updated&order=desc", {
+        fetch("https://api.github.com/search/repositories?q=" + match.params.techno + "&sort=updated&order=desc&per_page=100", {
             method: "GET",
             headers: {
                 'Authorization': "token 2944ac4205e293fce47c812989f7d998396b77cb"

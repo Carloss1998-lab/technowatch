@@ -15,6 +15,15 @@ export const ListOptions: React.FC<listOptions> = ({ options, name }) => {
     return (
 
         <IonList>
+
+
+            {options.map((option) => (
+                <IonItem>
+                    <IonButton color="secondary"
+                        routerLink={"/infos/" + name + "/" + option} >{option}</IonButton>
+                </IonItem>))}
+
+
             <IonItem>
                 <IonInput value={search} placeholder="Enter Input" onIonChange={e => setSearch(e.detail.value!)} clearInput></IonInput>
             </IonItem>
@@ -24,12 +33,6 @@ export const ListOptions: React.FC<listOptions> = ({ options, name }) => {
                     routerLink={"/infos/" + name + "/" + "search" + "/" + search}>OK</IonButton>
 
             </IonItem>
-
-            {options.map((option) => (
-                <IonItem>
-                    <IonButton color="secondary"
-                        routerLink={"/infos/" + name + "/" + option} >{option}</IonButton>
-                </IonItem>))}
         </IonList>
 
     )

@@ -8,7 +8,7 @@ import { logoWhatsapp } from 'ionicons/icons';
 
 const Tab3: React.FC = () => {
   const [listOption, setListOption] = useState<listOptions>({
-    options: ["Tensorflow", "Microsoft", "Facebook", "Whatsapp", "Twitter", "Google", "Apple"],
+    options: ["Tensorflow", "Microsoft", "Facebook", "Whatsapp", "Twitter", "Android", "Google", "Apple"],
     name: "Organizations"
   }
   );
