@@ -26,8 +26,6 @@ const Infos: React.FC<InfosProps> = ({ match }) => {
             )
     }, [])
 
-    console.log(data)
-
     return (
         <>
             <IonPage>
@@ -38,9 +36,8 @@ const Infos: React.FC<InfosProps> = ({ match }) => {
                     <IonContent>
                         <DisplayInfos total_count={data ? data.total_count : undefined} items={data.items} />
                     </IonContent> :
-
                     <IonLoading message="Loading..." duration={2000} isOpen={busy} />}
-                }
+
             </IonPage>
         </>)
 }

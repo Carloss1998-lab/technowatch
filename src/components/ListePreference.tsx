@@ -8,18 +8,20 @@ interface Props {
 
 const Preferences = ({ preferences }: Props) => (
     <IonList>
-        {preferences.map((preference) => (
-            <IonItem key={preference.Login}>
+        {preferences
+            .filter(pref => pref.Login != "erreur")
+            .map((preference) => (
+                <IonItem key={preference.Login}>
 
-                <IonLabel>
-                    <h2>Pseudo Github : {preference.Login}</h2>
+                    <IonLabel>
+                        <h2>Pseudoo Github : {preference.Login}</h2>
 
-                    <h2>Repository : {preference.repositorie}</h2>
+                        <h2>Repository : {preference.repositorie}</h2>
 
-                    <h3>{preference.description}</h3>
-                </IonLabel>
-            </IonItem>
-        ))}
+                        <h3>{preference.description}</h3>
+                    </IonLabel>
+                </IonItem>
+            ))}
     </IonList>
 );
 

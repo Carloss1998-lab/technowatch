@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonList, IonItem, IonButton, IonInput } from '@ionic/react';
+import { IonList, IonItem, IonButton, IonInput, IonCard, IonCardHeader, IonCardContent } from '@ionic/react';
 import { useLocation } from 'react-router';
 
 export interface listOptions {
@@ -15,24 +15,33 @@ export const ListOptions: React.FC<listOptions> = ({ options, name }) => {
     return (
 
         <IonList>
+            <IonCard>
+
+                <IonCardContent>
 
 
-            {options.map((option) => (
-                <IonItem>
-                    <IonButton color="secondary"
-                        routerLink={"/infos/" + name + "/" + option} >{option}</IonButton>
-                </IonItem>))}
+                    {options.map((option) => (
+                        <IonButton color="secondary"
+                            routerLink={"/infos/" + name + "/" + option} >{option}</IonButton>
+                    ))}
+                </IonCardContent>
+            </IonCard>
 
+            <IonCard>
 
-            <IonItem>
-                <IonInput value={search} placeholder="Enter Input" onIonChange={e => setSearch(e.detail.value!)} clearInput></IonInput>
-            </IonItem>
-            <IonItem>
+                <IonCardContent>
+                    <IonItem>
+                        <IonInput value={search} placeholder="Enter Input" onIonChange={e => setSearch(e.detail.value!)} clearInput></IonInput>
+                    </IonItem>
+                    <IonItem>
 
-                <IonButton color="danger"
-                    routerLink={"/infos/" + name + "/" + "search" + "/" + search}>OK</IonButton>
+                        <IonButton color="danger"
+                            routerLink={"/infos/" + name + "/" + "search" + "/" + search}>OK</IonButton>
 
-            </IonItem>
+                    </IonItem>
+                </IonCardContent>
+            </IonCard>
+
         </IonList>
 
     )

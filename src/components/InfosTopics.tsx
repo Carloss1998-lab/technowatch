@@ -39,7 +39,6 @@ const InfosOrganizations: React.FC<InfosProps> = ({ match }) => {
                     </IonContent> :
 
                     <IonLoading message="Loading..." duration={2000} isOpen={busy} />}
-                }
             </IonPage>
         </>)
 }

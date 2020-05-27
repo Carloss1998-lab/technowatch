@@ -27,7 +27,7 @@ const dataSource = {
     ]
 };
 export const chartConfigs = {
-    type: "column2d",
+    type: "line",
     width: 600,
     height: 400,
     dataFormat: "json",
