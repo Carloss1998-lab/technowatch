@@ -11,9 +11,9 @@ const routes = {
         { title: 'Add Preference', path: '/AjoutPreference', icon: addCircleOutline },
         { title: 'Mes Preferences', path: '/tabs/tab4', icon: happy },
         { title: 'FrameWork & Informatique', path: '/tabs/tab1', icon: optionsOutline },
-        { title: 'Organisations', path: '/tabs/tab2', icon: optionsOutline },
-        { title: 'Topics', path: '/tabs/tab3', icon: optionsOutline },
-        { title: 'About', path: '/tabs/tab1', icon: informationCircleOutline },
+        { title: 'Topics', path: '/tabs/tab2', icon: optionsOutline },
+        { title: 'Organizations', path: '/tabs/tab3', icon: optionsOutline },
+        { title: 'About', path: '/about', icon: informationCircleOutline },
         { title: 'Contact', path: '/contact', icon: help },
     ]
 };

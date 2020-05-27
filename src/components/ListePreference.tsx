@@ -7,21 +7,15 @@ interface Props {
     preferences: Preference[];
 }
 
-
-
-
-const Preferences = ({ preferences }: Props) => {
-    const location = useLocation()
-
-    return (
-        <IonList>
-            {preferences.map((preference) => (
-                <IonItem button
-                    key={preference.Login}
-                    routerLink={location.pathname + "/" + preference.Login + "/" + preference.repositorie}>
+const Preferences = ({ preferences }: Props) => (
+    <IonList>
+        {preferences
+            .filter(pref => pref.Login != "erreur")
+            .map((preference) => (
+                <IonItem key={preference.Login}>
 
                     <IonLabel>
-                        <h2>Pseudo Github : {preference.Login}</h2>
+                        <h2>Pseudoo Github : {preference.Login}</h2>
 
                         <h2>Repository : {preference.repositorie}</h2>
 
@@ -29,8 +23,8 @@ const Preferences = ({ preferences }: Props) => {
                     </IonLabel>
                 </IonItem>
             ))}
-        </IonList>
-    )
-};
+    </IonList>
+);
 
 export default Preferences;
+

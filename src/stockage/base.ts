@@ -24,7 +24,7 @@ export const getPreferences = async () => {
     }
 
     const data = await (await initDBIfNeeded()).executeSql(
-        "SELECT * FROM preferences",
+        "SELECT * FROM preferences ",
         []
     );
     const retour: Preference[] = [];

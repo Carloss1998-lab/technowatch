@@ -38,9 +38,9 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
 
     const [pref, setPref] = useState<Preference>(
         {
-            Login: owner.login,
-            repositorie: name,
-            description: description
+            Login: owner.login ? owner.login : "erreur",
+            repositorie: name ? name : "erreur",
+            description: description ? description : "erreur"
         })
 
 
