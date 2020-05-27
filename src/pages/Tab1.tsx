@@ -8,7 +8,7 @@ import { useState } from 'react';
 const Tab1: React.FC = () => {
   const [listOption, setListOption] = useState<listOptions>({
     options: ["Neural networks", "Python", "SVM", "Web", "NLP", "R"],
-    name: "Framework"
+    name: "Stats & Frameworks"
   }
   );
 

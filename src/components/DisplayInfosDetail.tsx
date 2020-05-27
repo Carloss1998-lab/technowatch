@@ -10,6 +10,7 @@ import { heart, arrowRedo, share, logoVimeo, logoFacebook, logoInstagram, logoTw
 import Preferences from "./ListePreference";
 import { getPreferences, addPreferences } from ".././stockage/base";
 import { Preference } from ".././stockage/Preference";
+import { toast } from './Toast';
 
 
 const ReactMarkdown = require('react-markdown/with-html')
@@ -39,7 +40,7 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
         {
             Login: owner.login,
             repositorie: name,
-            description: owner.type
+            description: description
         })
 
 
@@ -69,12 +70,15 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
                                 <p><b>Type</b>: {owner.type} </p>
                             </IonCardContent>
                             <IonCol>
-                                <IonButton color="danger" onClick={() => addPreferences(pref)} >
+                                <IonButton color="danger" onClick={() => {
+                                    addPreferences(pref)
+                                    toast('Préférence ajouté à votre liste')
+                                }} >
                                     J'aime <IonIcon icon={heart}></IonIcon>
                                 </IonButton>
                             </IonCol>
                             <IonCol>
-                                <IonButton color="danger" >
+                                <IonButton color="danger" onClick={() => toast("Pas encore disponible")} >
                                     Suivre <IonIcon icon={arrowRedo}></IonIcon>
 
                                 </IonButton>

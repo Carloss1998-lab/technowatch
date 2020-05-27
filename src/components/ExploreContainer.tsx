@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./ExploreContainer.css";
+//import "./ExploreContainer.css";
 import Preferences from "./ListePreference";
-import AjoutPreference from ".././stockage/AjoutPreference";
-import { getPreferences, addPreferences } from ".././stockage/base";
+import { getPreferences } from ".././stockage/base";
 import { Preference } from ".././stockage/Preference";
 
 

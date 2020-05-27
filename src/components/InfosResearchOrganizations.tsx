@@ -25,7 +25,6 @@ const InfosResearch: React.FC<InfosProps> = ({ match }) => {
                 setData(resp_json)
             )
     }, [])
-    console.log(data)
 
     return (
         <>

@@ -15,30 +15,6 @@ export const Toast: React.FC = () => {
                 message="Your settings have been saved."
                 duration={200}
             />
-
-            <IonToast
-                isOpen={showToast2}
-                onDidDismiss={() => setShowToast2(false)}
-                message="Click to Close"
-                position="top"
-                buttons={[
-                    {
-                        side: 'start',
-                        icon: 'star',
-                        text: 'Favorite',
-                        handler: () => {
-                            console.log('Favorite clicked');
-                        }
-                    },
-                    {
-                        text: 'Done',
-                        role: 'cancel',
-                        handler: () => {
-                            console.log('Cancel clicked');
-                        }
-                    }
-                ]}
-            />
         </IonContent>
     );
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from "../util/auth.js";
 import Login from "./Login";
-import MainTabs from '.././pages/aMainTabs';
+import MainTabs from '../pages/MainTabs';
 
 
 const Render = () => {

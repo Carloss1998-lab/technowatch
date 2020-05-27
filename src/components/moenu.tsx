@@ -8,7 +8,8 @@ import './Menu.css'
 
 const routes = {
     appPages: [
-        { title: 'Preferences', path: '/AjoutPreference', icon: pulseOutline },
+        { title: 'Add Preference', path: '/AjoutPreference', icon: pulseOutline },
+        { title: 'Mes Preferences', path: '/tabs/tab4', icon: optionsOutline },
         { title: 'FrameWork & Informatique', path: '/tabs/tab1', icon: optionsOutline },
         { title: 'Organisations', path: '/tabs/tab2', icon: optionsOutline },
         { title: 'Topics', path: '/tabs/tab3', icon: optionsOutline },
