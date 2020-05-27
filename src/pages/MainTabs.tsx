@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonLabel, IonBadge } from '@ionic/react';
 import { Route, Redirect } from 'react-router';
-import { optionsOutline, terminalOutline, barChartOutline } from 'ionicons/icons';
+import { terminalOutline, happy, bulb, briefcase } from 'ionicons/icons';
 import Tab1 from './Tab1';
 import Tab2 from './Tab2';
 import Tab3 from './Tab3';
@@ -30,18 +30,18 @@ const MainTabs: React.FC<MainTabsProps> = () => {
                     <IonLabel>Stats & Frameworks</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="tab2" href="/tabs/tab2">
-                    <IonIcon icon={barChartOutline} />
+                    <IonIcon icon={bulb} />
                     <IonLabel>Topics</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="tab3" href="/tabs/tab3">
-                    <IonIcon icon={optionsOutline} />
+                    <IonIcon icon={briefcase} />
                     <IonBadge slot="end">22</IonBadge>
                     <IonLabel>Organizations</IonLabel>
 
                 </IonTabButton>
 
                 <IonTabButton tab="tab4" href="/tabs/tab4">
-                    <IonIcon icon={optionsOutline} />
+                    <IonIcon icon={happy} />
                     <IonLabel>Preferences</IonLabel>
                 </IonTabButton>
             </IonTabBar>

@@ -28,6 +28,7 @@
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-x-socialsharing": "^5.6.8",
     "cordova-sqlite-storage": "^5.0.0",
+    "es6-promise-plugin": "^4.2.2",
     "firebase": "^7.14.3",
     "fusioncharts": "^3.15.1-sr.1",
     "history": "^4.10.1",

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RouteComponentProps, withRouter, useLocation } from 'react-router';
 
 import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonToggle } from '@ionic/react';
-import { hammer, moonOutline, help, informationCircleOutline, logIn, logOut, mapOutline, peopleOutline, person, personAdd, statsChartOutline, cartOutline, pulseOutline, optionsOutline, star, addCircleOutline, happy } from 'ionicons/icons';
+import { hammer, moonOutline, help, informationCircleOutline, logIn, logOut, mapOutline, peopleOutline, person, personAdd, statsChartOutline, cartOutline, pulseOutline, optionsOutline, star, addCircleOutline, happy, bulb, briefcase, terminalOutline } from 'ionicons/icons';
 import './Menu.css'
 
 
@@ -10,13 +10,14 @@ const routes = {
     appPages: [
         { title: 'Add Preference', path: '/AjoutPreference', icon: addCircleOutline },
         { title: 'Mes Preferences', path: '/tabs/tab4', icon: happy },
-        { title: 'FrameWork & Informatique', path: '/tabs/tab1', icon: optionsOutline },
-        { title: 'Topics', path: '/tabs/tab2', icon: optionsOutline },
-        { title: 'Organizations', path: '/tabs/tab3', icon: optionsOutline },
-        { title: 'About', path: '/about', icon: informationCircleOutline },
+        { title: 'FrameWork & Informatique', path: '/tabs/tab1', icon: terminalOutline },
+        { title: 'Topics', path: '/tabs/tab2', icon: bulb },
+        { title: 'Organizations', path: '/tabs/tab3', icon: briefcase },
         { title: 'Contact', path: '/contact', icon: help },
     ]
 };
+
+
 
 interface Pages {
     title: string,

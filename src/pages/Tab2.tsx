@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Tab2.css';
-import ReactFC from "react-fusioncharts";
 import { ListOptions, listOptions } from "../components/ListOptions";
-import Menu from ".././components/Menu"
 
 
-import { chartConfigs } from "./graphe"
 const Tab2: React.FC = () => {
 
 
@@ -26,7 +22,6 @@ const Tab2: React.FC = () => {
             <IonTitle size="large">Tab 2</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ReactFC {...chartConfigs} />
         <ListOptions options={listOption.options} name={listOption.name} />
       </IonContent>
     </IonPage>
