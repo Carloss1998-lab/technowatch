@@ -8,13 +8,12 @@ import Menu from ".././components/Menu"
 
 
 import { chartConfigs } from "./graphe"
-//import { MenuExample } from "../components/menu"
 const Tab2: React.FC = () => {
 
 
   const [listOption, setListOption] = useState<listOptions>({
-    options: ["NLP", "Neural networks", "SVM"],
-    name: "Stats"
+    options: ["Covid19", "Machine learning", "Global warning"],
+    name: "Topics"
   }
   );
 

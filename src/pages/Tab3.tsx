@@ -22,6 +22,8 @@ const Tab3: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <ListOptions options={listOption.options} name={listOption.name} />
+
+
       </IonContent>
     </IonPage>
   );

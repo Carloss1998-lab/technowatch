@@ -53,6 +53,7 @@ import { useAuth } from "./util/auth.js";
 import InfosResearch from './components/InfosResearch';
 import InfosTopics from './components/InfosTopics';
 import InfosResearchTopics from './components/InfosResearchTopics'
+import ExploreContainer2 from './components/ExploreContainer2';
 
 const App = () => {
   const auth = useAuth();
@@ -97,6 +98,7 @@ const App = () => {
                     <Route path="/infos/:heading/:techno/:login/:techno_item" component={InfosDetails}></Route>
                     <Route exact path="/infos/:heading/search/:techno/:login/:techno_item" component={InfosDetails}></Route>
                     <Route path="/signedIn" component={MainTabs}></Route>
+                    <Route path="/AjoutPreference" component={ExploreContainer2}></Route>
                     <Route path="/updateaccount" component={Update}></Route>
                     <Redirect from="/" to="/tabs" />
                   </Switch>
@@ -114,3 +116,5 @@ const App = () => {
 
 
 export default App;
+
+

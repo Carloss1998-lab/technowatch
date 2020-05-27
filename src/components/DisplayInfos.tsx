@@ -37,7 +37,6 @@ const DisplayInfos: React.FC<DataFormat> = ({ items }) => {
                         routerLink={location.pathname + "/" + item.owner.login + "/" + item.name}
                     >
 
-
                         <IonAvatar slot="start">
                             <img src={item.owner.avatar_url}></img>
                         </IonAvatar>
