@@ -1,7 +1,7 @@
 
-# Project Title
+# Techno Watch
 
-This repository proposes an Android application developed as part of the mobimle technology course at ENSAI.
+This repository proposes an Android application developed as part of the mobile technology course at ENSAI.
 The code has been written via Ionic React so it is a cross-platform application that can be run on any web browser, Android and also on ios (subject to further modifications).
 
 ## Getting Started
@@ -14,8 +14,8 @@ What things you need to install the software and how to install them
 
 ```
 Android studio
+Android SDK
 Nodejs (with npm)
-
 ```
 
 ### Installing
@@ -36,9 +36,11 @@ Running the code via nodejs
 ```
 ionic serve
 ```
-## Deployment
+Building the code via nodejs
 
-Add additional notes about how to deploy this on a live system
+```
+ionic start
+```
 
 ## Built With
 
