@@ -54,6 +54,7 @@ import InfosResearch from './components/InfosResearch';
 import InfosTopics from './components/InfosTopics';
 import InfosResearchTopics from './components/InfosResearchTopics'
 import ExploreContainer2 from './components/ExploreContainer2';
+import Sidemenu from "./components/SideMenu"
 
 const App = () => {
   const auth = useAuth();
