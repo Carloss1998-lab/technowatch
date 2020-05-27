@@ -10,6 +10,8 @@ interface Project {
     name: string,
     description: string,
     created_by: string,
+    created_at: string,
+    updated_at: string;
 }
 
 
@@ -31,6 +33,8 @@ const DisplayInfos: React.FC<DataFormat> = ({ items }) => {
                         <IonLabel>
                             <h2>{item.name}</h2>
                             <p>Created by :  {item.created_by}</p>
+                            <p>Creation Date :  {new Date(item.created_at).toUTCString()}</p>
+                            <p>Last Update :  {new Date(item.updated_at).toUTCString()}</p>
                             <p>Description : {item.description}</p>
                         </IonLabel>
                     </IonItem>

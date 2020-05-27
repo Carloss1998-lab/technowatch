@@ -21,6 +21,7 @@
     "jsx": "react"
   },
   "include": [
-    "src"
+    "src",
+    "../../veille_tecno/TP/src/components/DisplayInfosTopics.tsx"
   ]
 }

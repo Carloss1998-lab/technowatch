@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Tab3.css';
 import { ListOptions, listOptions } from "../components/ListOptions";
+import { logoWhatsapp } from 'ionicons/icons';
 
 
 
 const Tab3: React.FC = () => {
   const [listOption, setListOption] = useState<listOptions>({
-    options: ["Tensorflow", "Facebook", "Google"],
+    options: ["Tensorflow", "Microsoft", "Facebook", "Whatsapp", "Twitter", "Google", "Apple"],
     name: "Organizations"
   }
   );
