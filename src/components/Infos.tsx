@@ -4,7 +4,8 @@ import { IonContent, IonPage, IonHeader, IonList, IonItem, IonLoading } from '@i
 import DisplayInfos from "./DisplayInfos";
 
 interface InfosProps extends RouteComponentProps<{
-    techno: string;
+    techno: string,
+    heading: string;
 }> { }
 
 
@@ -13,12 +14,18 @@ const Infos: React.FC<InfosProps> = ({ match }) => {
     const [busy, setBusy] = useState<boolean>(true)
 
     useEffect(() => {
-        fetch("https://api.github.com/search/repositories?q=" + match.params.techno + "&sort=updated&order=desc")
+        fetch("https://api.github.com/search/repositories?q=" + match.params.techno + "&sort=updated&order=desc", {
+            method: "GET",
+            headers: {
+                'Authorization': "token 2944ac4205e293fce47c812989f7d998396b77cb"
+            }
+        })
             .then((resp) => resp.json())
             .then((resp_json) =>
                 setData(resp_json)
             )
     }, [])
+
     console.log(data)
 
     return (

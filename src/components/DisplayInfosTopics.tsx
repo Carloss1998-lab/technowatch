@@ -1,22 +1,15 @@
 import React from 'react';
-import { IonAvatar, IonLabel, IonList, IonItem } from '@ionic/react';
+import { IonLabel, IonList, IonItem } from '@ionic/react';
 import { useLocation } from 'react-router';
 
 interface DataFormat {
-    total_count?: string,
-    incomplete_results?: boolean,
     items: Project[],
-
 }
 
 interface Project {
     name: string,
     description: string,
-    owner: {
-        avatar_url: string,
-        login: string
-    }
-
+    created_by: string,
 }
 
 
@@ -33,17 +26,12 @@ const DisplayInfos: React.FC<DataFormat> = ({ items }) => {
                 .map((item) => (
 
 
-                    <IonItem button
-                        routerLink={location.pathname + "/" + item.owner.login + "/" + item.name}
-                    >
+                    <IonItem >
 
-
-                        <IonAvatar slot="start">
-                            <img src={item.owner.avatar_url}></img>
-                        </IonAvatar>
                         <IonLabel>
                             <h2>{item.name}</h2>
-                            <p>{item.description}</p>
+                            <p>Created by :  {item.created_by}</p>
+                            <p>Description : {item.description}</p>
                         </IonLabel>
                     </IonItem>
                 ))) : <div>No data available for this research</div>}

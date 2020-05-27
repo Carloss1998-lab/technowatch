@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { IonContent, IonPage, IonHeader, IonList, IonItem, IonLoading } from '@ionic/react';
+import { IonContent, IonPage, IonHeader, IonLoading } from '@ionic/react';
 import DisplayInfos from "./DisplayInfos";
 
 interface InfosProps extends RouteComponentProps<{
-    search: string,
-    heading: string;
+    org: string,
 }> { }
 
 
-const InfosResearch: React.FC<InfosProps> = ({ match }) => {
+const InfosOrganizations: React.FC<InfosProps> = ({ match }) => {
     const [data, setData] = useState<any>();
     const [busy, setBusy] = useState<boolean>(true)
 
     useEffect(() => {
-
-        fetch("https://api.github.com/search/repositories?q=" + match.params.search + "&sort=updated&order=desc", {
+        fetch("https://api.github.com/search/repositories?q=org:" + match.params.org + "&sort=updated&order=desc", {
             method: "GET",
             headers: {
                 'Authorization': "token 2944ac4205e293fce47c812989f7d998396b77cb"
@@ -26,13 +24,12 @@ const InfosResearch: React.FC<InfosProps> = ({ match }) => {
                 setData(resp_json)
             )
     }, [])
-    console.log(data)
 
     return (
         <>
             <IonPage>
                 <IonHeader>
-                    <div>News on {match.params.search}</div>
+                    <div>News on {match.params.org}</div>
                 </IonHeader>
                 {data ?
                     <IonContent>
@@ -46,4 +43,4 @@ const InfosResearch: React.FC<InfosProps> = ({ match }) => {
 }
 
 
-export default InfosResearch;
+export default InfosOrganizations;

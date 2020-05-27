@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { IonContent, IonPage, IonHeader, IonList, IonItem, IonLoading } from '@ionic/react';
-import DisplayInfos from "./DisplayInfos";
+import { IonContent, IonPage, IonLoading } from '@ionic/react';
 import DisplayInfosDetails from './DisplayInfosDetail';
-import fs from "fs";
 
 
 interface DetailsInfosProps extends RouteComponentProps<{
     techno: string,
     techno_item: string,
     repository: string,
-    login: string;
+    login: string,
+    heading: string;
 
 }> { }
 
@@ -27,25 +26,37 @@ const InfosDetails: React.FC<DetailsInfosProps> = ({ match }) => {
 
 
     useEffect(() => {
-        fetch(" https://api.github.com/repos/" + match.params.login + "/" + match.params.techno_item)
+        fetch(" https://api.github.com/repos/" + match.params.login + "/" + match.params.techno_item, {
+            method: "GET",
+            headers: {
+                'Authorization': "token 2944ac4205e293fce47c812989f7d998396b77cb"
+            }
+        })
             .then((resp) => resp.json())
             .then((resp_json) =>
                 setData(resp_json)
             )
     }, [])
-    console.log(match.params.techno_item)
+
+
 
     useEffect(() => {
-        fetch("https://api.github.com/repos/" + match.params.login + "/" + match.params.techno_item + "/readme")
+        fetch("https://api.github.com/repos/" + match.params.login + "/" + match.params.techno_item + "/readme", {
+            method: "GET",
+            headers: {
+                'Authorization': "token 2944ac4205e293fce47c812989f7d998396b77cb"
+            }
+        })
             .then((resp) => resp.json())
-            .then((resp_json) =>
-                setReadMe(decodeURIComponent(escape(window.atob(resp_json.content))))
+            .then((resp_json) => {
+                resp_json.content ?
+                    setReadMe(decodeURIComponent(escape(window.atob(resp_json.content)))) :
+                    setReadMe(resp_json.content)
+            }
 
             )
     }, [])
 
-    console.log(data)
-    console.log(readme)
 
 
 

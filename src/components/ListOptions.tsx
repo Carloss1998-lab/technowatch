@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { IonList, IonItem, IonButton, IonSearchbar, IonToolbar, IonInput } from '@ionic/react';
-import InfosResarch from "./InfosResearch";
-import { RouteComponentProps, useLocation } from 'react-router';
+import { IonList, IonItem, IonButton, IonInput } from '@ionic/react';
+import { useLocation } from 'react-router';
 
 export interface listOptions {
     options: string[];
@@ -20,15 +19,16 @@ export const ListOptions: React.FC<listOptions> = ({ options, name }) => {
                 <IonInput value={search} placeholder="Enter Input" onIonChange={e => setSearch(e.detail.value!)} clearInput></IonInput>
             </IonItem>
             <IonItem>
+
                 <IonButton color="danger"
-                    //onClick={InfosResarch({ search })}
-                    routerLink={"/infos" + "/" + search}>OK</IonButton>
+                    routerLink={"/infos/" + name + "/" + "search" + "/" + search}>OK</IonButton>
 
             </IonItem>
 
             {options.map((option) => (
                 <IonItem>
-                    <IonButton color="secondary" routerLink={"/infos/" + option} >{option}</IonButton>
+                    <IonButton color="secondary"
+                        routerLink={"/infos/" + name + "/" + option} >{option}</IonButton>
                 </IonItem>))}
         </IonList>
 

@@ -1,11 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { RouteComponentProps, Route } from 'react-router';
-import { IonContent, IonRouterOutlet, IonAvatar, IonLabel, IonList, IonItem, IonHeader, IonPage, IonCard, IonCardContent, IonCardTitle } from '@ionic/react';
-import InfosDetails from "./InfosDetails"
-import { useLocation } from 'react-router';
-import { IonReactRouter } from '@ionic/react-router';
-//import ReactMarkdown from "react-markdown";
-import App from '../App';
+import React from 'react';
+import { IonContent, IonAvatar, IonHeader, IonPage, IonCard, IonCardContent, IonCardTitle } from '@ionic/react';
 
 
 
@@ -39,7 +33,7 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
         <>
 
 
-            {
+            {name ?
                 <IonPage>
                     <IonHeader>
                         <h2>{name}</h2>
@@ -76,7 +70,7 @@ const DisplayInfosDetails: React.FC<Project> = ({ name, description, owner, read
                     </IonContent>
                 </IonPage>
 
-            }
+                : <div>NO data for this research</div>}
 
         </>
 
