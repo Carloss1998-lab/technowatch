@@ -25,7 +25,7 @@ A step by step series of examples that tell you how to get a development env run
 Cloning the project
 
 ```
-git clone 
+git clone https://github.com/Carloss1998-lab/technowatch/
 ```
 
 Installing all the dependances
@@ -47,7 +47,6 @@ ionic start
 
 * [NODEjs](https://nodejs.org/) - Dependency Management
 * [Github API](https://api.github.com/) - Used to find some informations about some repositories on github
-sitory](https://github.com/your/project/tags). 
 
 ## Authors
 
