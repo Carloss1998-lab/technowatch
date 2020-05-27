@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { RouteComponentProps, withRouter, useLocation } from 'react-router';
 
 import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonToggle } from '@ionic/react';
-import { hammer, moonOutline, help, informationCircleOutline, logIn, logOut, mapOutline, peopleOutline, person, personAdd, statsChartOutline, cartOutline, pulseOutline, optionsOutline } from 'ionicons/icons';
+import { hammer, moonOutline, help, informationCircleOutline, logIn, logOut, mapOutline, peopleOutline, person, personAdd, statsChartOutline, cartOutline, pulseOutline, optionsOutline, star, addCircleOutline, happy } from 'ionicons/icons';
 import './Menu.css'
 
 
 const routes = {
     appPages: [
-        { title: 'Add Preference', path: '/AjoutPreference', icon: pulseOutline },
-        { title: 'Mes Preferences', path: '/tabs/tab4', icon: optionsOutline },
+        { title: 'Add Preference', path: '/AjoutPreference', icon: addCircleOutline },
+        { title: 'Mes Preferences', path: '/tabs/tab4', icon: happy },
         { title: 'FrameWork & Informatique', path: '/tabs/tab1', icon: optionsOutline },
         { title: 'Organisations', path: '/tabs/tab2', icon: optionsOutline },
         { title: 'Topics', path: '/tabs/tab3', icon: optionsOutline },
@@ -34,17 +34,20 @@ const Menue = ({ history }: Props) => {
             .filter(route => !!route.path)
             .map(page => (
 
+
                 <IonMenuToggle key={page.title} menu="first" autoHide={false}>
                     <IonItem button
                         color={page.title === activePage ? 'primary' : ''}
                         onClick={() => navigateToPage(page)}>
 
-                        <IonIcon slot="start" name={page.icon}></IonIcon>
                         <IonLabel>
                             {page.title}
                         </IonLabel>
+                        <IonIcon slot="start" icon={page.icon}></IonIcon>
+
                     </IonItem>
                 </IonMenuToggle>
+
             ));
     }
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonMenuToggle, IonIcon, IonLabel, IonItem } from "@ionic/react";
 import { RouteComponentProps, withRouter } from 'react-router';
+import { star } from 'ionicons/icons';
 
 interface Page {
     title: string;
@@ -9,8 +10,8 @@ interface Page {
 }
 
 const pages: Page[] = [
-    { title: 'Home', path: '/', icon: 'home' },
-    { title: 'About', path: '/about', icon: 'information' }
+    { title: 'Home', path: '/', icon: star },
+    { title: 'About', path: '/about', icon: star }
 ];
 
 type Props = RouteComponentProps<{}>;
@@ -24,10 +25,11 @@ const SideMenu = ({ history }: Props) => {
                 <IonItem button
                     color={page.title === activePage ? 'primary' : ''}
                     onClick={() => navigateToPage(page)}>
-                    <IonIcon slot="start" name={page.icon}></IonIcon>
                     <IonLabel>
                         {page.title}
                     </IonLabel>
+                    <IonIcon slot="end" icon={page.icon} />
+
                 </IonItem>
             </IonMenuToggle>
         ));
